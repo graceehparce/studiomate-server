@@ -1,0 +1,92 @@
+[
+    {
+        "model": "studiomateapi.student",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "teacher": 7,
+            "phone_number": "615-293-1029",
+            "img": "https://media.istockphoto.com/id/1280113805/photo/smiling-young-woman-beauty-close-up-portrait.jpg?s=612x612&w=0&k=20&c=11GhfzV2ZdNaikNwncxvGQARw4MoT22DDfzqs4UpqL0="
+        }
+    },
+    {
+        "model": "studiomateapi.student",
+        "pk": 2,
+        "fields": {
+            "user": 3,
+            "teacher": 7,
+            "phone_number": "910-234-9485",
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR8Hs6ckVFlcBvFifiDLz4CTuFNSBqAnjp3w&usqp=CAU"
+        }
+    },
+    {
+        "model": "studiomateapi.student",
+        "pk": 3,
+        "fields": {
+            "user": 4,
+            "teacher": 7,
+            "phone_number": "615-748-1298",
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN8ednSxIcRLR7UFL82PX4EvJuQGumMTxcAA&usqp=CAU"
+        }
+    },
+    {
+        "model": "studiomateapi.student",
+        "pk": 4,
+        "fields": {
+            "user": 5,
+            "teacher": 7,
+            "phone_number": "615-490-2223",
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnuARt5fNYOPiXNRvBEJTRH07atf0XbTklDA&usqp=CAU"
+        }
+    },
+    {
+        "model": "studiomateapi.student",
+        "pk": 5,
+        "fields": {
+            "user": 6,
+            "teacher": 7,
+            "phone_number": "342-320-3920",
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW_wy781rAiti1zJknR11uer4Wg6kFMlRx-w&usqp=CAU"
+        }
+    },
+    {
+        "model": "studiomateapi.student",
+        "pk": 6,
+        "fields": {
+            "user": 7,
+            "teacher": 7,
+            "phone_number": "938-039-1235",
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdnlTs4yGWl6JBUG8DQ9666yOSRsr6HGc4SQ&usqp=CAU"
+        }
+    },
+    {
+        "model": "studiomateapi.student",
+        "pk": 7,
+        "fields": {
+            "user": 8,
+            "teacher": 7,
+            "phone_number": "615-233-0094",
+            "img": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/3-portrait-of-cute-happy-hipster-young-woman-in-park-during-autumn-cavan-images.jpg"
+        }
+    },
+    {
+        "model": "studiomateapi.student",
+        "pk": 8,
+        "fields": {
+            "user": 9,
+            "teacher": 7,
+            "phone_number": "109-200-3987",
+            "img": "https://www.westend61.de/images/0001304696pw/portrait-of-young-woman-JOHF05092.jpg"
+        }
+    },
+    {
+        "model": "studiomateapi.student",
+        "pk": 9,
+        "fields": {
+            "user": 10,
+            "teacher": 7,
+            "phone_number": "615-382-2039",
+            "img": "https://media.istockphoto.com/id/1350800599/photo/happy-indian-business-man-leader-manager-standing-in-office-headshot-portrait.jpg?b=1&s=170667a&w=0&k=20&c=pz5kwfLy64_AQIwiv9FDDJWWkAzb2Lf1F5fjZW23dBo="
+        }
+    }
+]

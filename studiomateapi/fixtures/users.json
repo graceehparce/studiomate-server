@@ -1,0 +1,122 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "Gracie",
+            "username": "GracieParce",
+            "first_name": "Gracie",
+            "last_name": "Parce",
+            "email": "graceehparce@gmail.com",
+            "is_staff": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "Gia",
+            "username": "GiaMarshall",
+            "first_name": "Gia",
+            "last_name": "Marshall",
+            "email": "gia.marshall@gmail.com",
+            "is_staff": false
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "password": "Alondra",
+            "username": "AlondraTorres",
+            "first_name": "Alondra",
+            "last_name": "Torres",
+            "email": "alondrat@gmail.com",
+            "is_staff": false
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+            "password": "Sam",
+            "username": "SamEwig",
+            "first_name": "Sam",
+            "last_name": "Ewig",
+            "email": "sam.ewig@gmail.com",
+            "is_staff": false
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "password": "Reed",
+            "username": "ReedByers",
+            "first_name": "Reed",
+            "last_name": "Byers",
+            "email": "reedbyers@gmail.com",
+            "is_staff": false
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "password": "Pam",
+            "username": "PamZebrine",
+            "first_name": "Pam",
+            "last_name": "Zebrine",
+            "email": "pam.zebrine@gmail.com",
+            "is_staff": false
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "password": "Susanna",
+            "username": "SusannaBlowfield",
+            "first_name": "Susanna",
+            "last_name": "Blowfield",
+            "email": "susanna.blowfield@gmail.com",
+            "is_staff": false
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "password": "Taylor",
+            "username": "TaylorReiss",
+            "first_name": "Taylor",
+            "last_name": "Reiss",
+            "email": "taylorreiss@gmail.com",
+            "is_staff": false
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 9,
+        "fields": {
+            "password": "Tessa",
+            "username": "TessaWilliams",
+            "first_name": "Tessa",
+            "last_name": "Williams",
+            "email": "tessa.williams@gmail.com",
+            "is_staff": false
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 10,
+        "fields": {
+            "password": "Drew",
+            "username": "DrewCobb",
+            "first_name": "Drew",
+            "last_name": "Cobb",
+            "email": "drew.cobb@gmail.com",
+            "is_staff": false
+        }
+    }
+]
