@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework import serializers, status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from studiomateapi.models import Teacher, Request
+from studiomateapi.models import Teacher, Request, Student
 
 
 class RequestView(ViewSet):
@@ -14,7 +14,20 @@ class RequestView(ViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def list(self, request):
-        requests = Request.objects.all()
+
+        if "student" in request.query_params:
+            student_id = request.query_params['student']
+            logged_in_teacher = Teacher.objects.get(user=request.auth.user)
+
+            requests = Request.objects.filter(
+                student=student_id, teacher=logged_in_teacher
+            ).order_by("date")
+
+        else:
+            logged_in_teacher = Teacher.objects.get(user=request.auth.user)
+            requests = Request.objects.filter(
+                teacher=logged_in_teacher).order_by("date")
+
         serializer = RequestSerializer(requests, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -24,15 +37,16 @@ class RequestView(ViewSet):
 
         logged_in_teacher = Teacher.objects.get(user=request.auth.user)
 
-        new_request.teacher = logged_in_teacher.pk
-        new_request.student = request.data["studentId"]
+        new_request.teacher = logged_in_teacher
+        needed_student = Student.objects.get(pk=request.data["student"])
+        new_request.student = needed_student
         new_request.accepted = False
         new_request.time = request.data["time"]
         new_request.date = request.data["date"]
         new_request.save()
 
         serializer = RequestSerializer(new_request)
-        return Response(RequestSerializer.data)
+        return Response(serializer.data)
 
     def destroy(self, request, pk):
         resource = Request.objects.get(pk=pk)
@@ -40,9 +54,18 @@ class RequestView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
+class StudentSerializer(serializers.ModelSerializer):
+    class Meta:
+
+        model = Student
+        fields = ('id', 'full_name')
+
+
 class RequestSerializer(serializers.ModelSerializer):
+
+    student = StudentSerializer(many=False)
 
     class Meta:
         model = Request
-        fields = ('id', 'student', 'viewed', 'date',
+        fields = ('id', 'student', 'accepted', 'date',
                   'time', 'teacher')

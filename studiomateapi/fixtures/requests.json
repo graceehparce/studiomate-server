@@ -1,0 +1,46 @@
+[
+    {
+        "model": "studiomateapi.request",
+        "pk": 1,
+        "fields": {
+            "student": 2,
+            "teacher": 7,
+            "date": "2022-12-30",
+            "time": "14:00:00",
+            "accepted": false
+        }
+    },
+    {
+        "model": "studiomateapi.request",
+        "pk": 2,
+        "fields": {
+            "student": 1,
+            "teacher": 7,
+            "date": "2022-12-29",
+            "time": "09:00:00",
+            "accepted": false
+        }
+    },
+    {
+        "model": "studiomateapi.request",
+        "pk": 3,
+        "fields": {
+            "student": 2,
+            "teacher": 7,
+            "date": "2022-12-22",
+            "time": "14:00:00",
+            "accepted": true
+        }
+    },
+    {
+        "model": "studiomateapi.request",
+        "pk": 4,
+        "fields": {
+            "student": 1,
+            "teacher": 7,
+            "date": "2022-12-21",
+            "time": "09:00:00",
+            "accepted": true
+        }
+    }
+]

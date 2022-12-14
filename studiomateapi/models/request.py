@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Request(models.Model):
-    student = models.OneToOneField(
+    student = models.ForeignKey(
         "Student", on_delete=models.CASCADE, related_name='student_requests')
     date = models.DateTimeField()
     time = models.TimeField()

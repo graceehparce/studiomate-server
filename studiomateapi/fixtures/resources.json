@@ -5,7 +5,8 @@
         "fields": {
             "teacher": 1,
             "resource": "https://www.johnsonstring.com/cgi-bin/music/scripts/violin-viola-cello-music.cgi?itemno=CESUZUCELLO1IBK&gclid=Cj0KCQiA7bucBhCeARIsAIOwr-8FfLy-NJimSmdj7AJ1dXL_3xuFWOlfFjHy5tFtIKrsCJknxQuFJXkaAhaUEALw_wcB",
-            "img": "https://m.media-amazon.com/images/I/51ieOXAmLvL._AC_SY780_.jpg"
+            "img": "https://m.media-amazon.com/images/I/51ieOXAmLvL._AC_SY780_.jpg",
+            "name": "Suzuki Cello Book 1"
         }
     }
 ]

@@ -16,9 +16,17 @@ class StudentView(ViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def list(self, request):
-        logged_in_teacher = Teacher.objects.get(user=request.auth.user)
 
-        students = Student.objects.filter(teacher=logged_in_teacher.pk)
+        students = []
+
+        if "status" in request.query_params:
+            logged_in_student = Student.objects.filter(user=request.auth.user)
+            students = logged_in_student
+
+        else:
+            logged_in_teacher = Teacher.objects.get(user=request.auth.user)
+
+            students = Student.objects.filter(teacher=logged_in_teacher.pk)
 
         serializer = StudentSerializer(students, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -27,9 +35,9 @@ class StudentView(ViewSet):
 
         new_student = Student()
         new_student.user = User.objects.get(request.auth.user)
-        new_student.phone_number = request.data["phoneNumber"]
+        new_student.phone_number = request.data["phone_number"]
         new_student.img = request.data["img"]
-        new_student.teacher = request.data["teacherId"]
+        new_student.teacher = request.data["teacher"]
         new_student.save()
 
         serializer = StudentSerializer(new_student)
@@ -44,11 +52,11 @@ class StudentView(ViewSet):
         student = Student.objects.get(pk=pk)
         user = User.objects.get(pk=request.auth.user)
         student.user = user
-        student.phone_number = request.data["phoneNumber"]
-        student.teacher = request.data["teacherId"]
+        student.phone_number = request.data["phone_number"]
+        student.teacher = request.data["teacher"]
         student.img = request.data["img"]
-        user.first_name = request.data["firstName"]
-        user.last_name = request.data["lastName"]
+        user.first_name = request.data["first_name"]
+        user.last_name = request.data["last_name"]
         user.email = request.data["email"]
         student.save()
         user.save()

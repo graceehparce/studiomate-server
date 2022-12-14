@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Student(models.Model):
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='user_student')
     phone_number = models.CharField(max_length=250)
     img = models.CharField(max_length=1000)

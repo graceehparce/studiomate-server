@@ -1,0 +1,62 @@
+[
+    {
+        "model": "studiomateapi.assignment",
+        "pk": 1,
+        "fields": {
+            "student": 1,
+            "teacher": 7,
+            "date_created": "2022-12-1",
+            "fundamentals": "D major scale, 3 octaves, with arpeggios. Cossman, exercise 17.",
+            "repertoire": "Scherzo, Suzuki book 3",
+            "comments": "Good work with developing the appropriate bow stroke for this piece. Make sure you stay in the middle of the bow for more bounce. Try to slow down your shifts, use the time you have with open strings to prepare you hand."
+        }
+    },
+    {
+        "model": "studiomateapi.assignment",
+        "pk": 2,
+        "fields": {
+            "student": 1,
+            "teacher": 7,
+            "date_created": "2022-02-02",
+            "fundamentals": "C major scale, 3 octaves, with arpeggios. Cossman, exercise 19.",
+            "repertoire": "Scherzo, Suzuki Book 3, Minuet in G",
+            "comments": "Nice work with the shifts. Keep up the tempo, a more relaxed bow arm will make the endurance less of an issue. Start working on Minuet, be careful with the dotted rhythms."
+        }
+    },
+    {
+        "model": "studiomateapi.assignment",
+        "pk": 3,
+        "fields": {
+            "student": 1,
+            "teacher": 7,
+            "date_created": "2022-01-25",
+            "fundamentals": "C major scale, 3 octaves, with arpeggios. Thumb position book, exercises 1-5.",
+            "repertoire": "Minuet in G",
+            "comments": "For first half, focus on fluidity, even with the more angular rhythms. Second half, practice bow strokes on open strings, make sure you are using vertical motion, pressure on first finger, not horizontal motion to create the articulation."
+        }
+    },
+    {
+        "model": "studiomateapi.assignment",
+        "pk": 4,
+        "fields": {
+            "student": 2,
+            "teacher": 7,
+            "date_created": "2022-03-21",
+            "fundamentals": "G major scale, 2 octaves, with arpeggios. Position pieces, page 5-6.",
+            "repertoire": "Minuet No. 2",
+            "comments": "Slow everything down, focus on a clean and rich sound in your scales. For the Minuet, the string crossing should come from the forearm, not the shoulder. Make sure to organize your bow distribution accordingly to help with minuet rhythm."
+        }
+    },
+    {
+        "model": "studiomateapi.assignment",
+        "pk": 5,
+        "fields": {
+            "student": 2,
+            "teacher": 7,
+            "date_created": "2022-04-04",
+            "fundamentals": "C major scale, 2 octaves, with arpeggios. Position pieces, page 6-8",
+            "repertoire": "Minuet No. 2",
+            "comments": "Accuracy and evenness. Rhythm is suffering with all the string crossings and the introduction of extensions and triplets. Practice with a metronome. Slow things down if necessary. Rhythm needs to come first. Separate the two hands if necessary, practice with open strings, and take things in small chunks."
+        }
+    }
+]

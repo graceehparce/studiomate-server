@@ -10,7 +10,16 @@ from django.contrib.auth.models import User
 class ResourceView(ViewSet):
 
     def list(self, request):
-        resources = Resource.objects.all()
+
+        resources = []
+
+        if "teacher" in request.query_params:
+            teacher_id = request.query_params['teacher']
+            resources = Resource.objects.filter(teacher=teacher_id)
+
+        else:
+            resources = Resource.objects.all()
+
         serializer = ResourceSerializer(resources, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -18,11 +27,12 @@ class ResourceView(ViewSet):
 
         new_resource = Resource()
 
-        logged_in_teacher = Teacher.objects.get(user=request.auth.user)
+        logged_in_teacher = Teacher.objects.get(pk=request.data["teacher"])
 
-        new_resource.teacher = logged_in_teacher.pk
+        new_resource.teacher = logged_in_teacher
         new_resource.resource = request.data["resource"]
         new_resource.img = request.data["img"]
+        new_resource.name = request.data["name"]
         new_resource.save()
 
         serializer = ResourceSerializer(new_resource)
@@ -37,5 +47,5 @@ class ResourceView(ViewSet):
 class ResourceSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Student
-        fields = ('id', 'teacher', 'resource', 'img')
+        model = Resource
+        fields = ('id', 'teacher', 'resource', 'img', 'name')

@@ -25,12 +25,19 @@ class TeacherView(ViewSet):
     permission_classes = [TeacherPermission]
 
     def list(self, request):
-        teachers = Teacher.objects.all()
+        teachers = []
+
+        if "status" in request.query_params:
+            logged_in_teacher = Teacher.objects.filter(user=request.auth.user)
+            teachers = logged_in_teacher
+
+        else:
+            teachers = Teacher.objects.all()
+
         serializer = TeacherSerializer(teachers, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def retrieve(self, request, pk):
-
         teacher = Teacher.objects.get(pk=pk)
 
         serializer = TeacherSerializer(teacher)
@@ -50,12 +57,12 @@ class TeacherView(ViewSet):
     def update(self, request, pk):
 
         teacher = Teacher.objects.get(pk=pk)
-        user = User.objects.get(pk=request.auth.user)
+        user = User.objects.get(pk=request.auth.user.pk)
         teacher.user = user
-        teacher.phone_number = request.data["phoneNumber"]
+        teacher.phone_number = request.data["phone_number"]
         teacher.img = request.data["img"]
-        user.first_name = request.data["firstName"]
-        user.last_name = request.data["lastName"]
+        user.first_name = request.data["first_name"]
+        user.last_name = request.data["last_name"]
         user.email = request.data["email"]
         teacher.save()
         user.save()

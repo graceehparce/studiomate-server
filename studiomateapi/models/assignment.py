@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Assignment(models.Model):
-    student = models.OneToOneField(
+    student = models.ForeignKey(
         "Student", on_delete=models.CASCADE, related_name='student_assignments')
-    teacher = models.OneToOneField(
+    teacher = models.ForeignKey(
         "Teacher", on_delete=models.CASCADE, related_name='teacher_assignments')
     date_created = models.DateField()
     fundamentals = models.CharField(max_length=1000)

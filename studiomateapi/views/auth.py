@@ -45,15 +45,17 @@ def register_user(request):
     new_user = User.objects.create_user(
         username=request.data['username'],
         password=request.data['password'],
-        first_name=request.data['firstName'],
-        last_name=request.data['lastName'],
+        first_name=request.data['first_name'],
+        last_name=request.data['last_name'],
         email=request.data['email']
     )
 
     if "teacher" in request.data:
+        new_user.save()
+        needed_teacher = Teacher.objects.get(pk=request.data['teacher'])
         student = Student.objects.create(
-            phone_number=request.data['phoneNumber'],
-            teacher=request.data['teacher'],
+            phone_number=request.data['phone_number'],
+            teacher=needed_teacher,
             img=request.data['img'],
             user=new_user
         )
@@ -63,7 +65,7 @@ def register_user(request):
         new_user.is_staff = True
         new_user.save()
         teacher = Teacher.objects.create(
-            phone_number=request.data['phoneNumber'],
+            phone_number=request.data['phone_number'],
             img=request.data['img'],
             user=new_user
         )
