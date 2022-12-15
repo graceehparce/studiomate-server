@@ -37,7 +37,8 @@ class StudentView(ViewSet):
         new_student.user = User.objects.get(request.auth.user)
         new_student.phone_number = request.data["phone_number"]
         new_student.img = request.data["img"]
-        new_student.teacher = request.data["teacher"]
+        needed_teacher = Teacher.objects.get(pk=request.data["teacher"])
+        new_student.teacher = needed_teacher
         new_student.save()
 
         serializer = StudentSerializer(new_student)
@@ -50,10 +51,11 @@ class StudentView(ViewSet):
 
     def update(self, request, pk):
         student = Student.objects.get(pk=pk)
-        user = User.objects.get(pk=request.auth.user)
+        user = User.objects.get(pk=request.auth.user.pk)
         student.user = user
         student.phone_number = request.data["phone_number"]
-        student.teacher = request.data["teacher"]
+        needed_teacher = Teacher.objects.get(pk=request.data["teacher"])
+        student.teacher = needed_teacher
         student.img = request.data["img"]
         user.first_name = request.data["first_name"]
         user.last_name = request.data["last_name"]
@@ -64,7 +66,22 @@ class StudentView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
+class TeacherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Teacher
+        fields = ('id', 'full_name')
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'first_name', 'last_name')
+
+
 class StudentSerializer(serializers.ModelSerializer):
+
+    teacher = TeacherSerializer(many=False)
+    user = UserSerializer(many=False)
 
     class Meta:
         model = Student

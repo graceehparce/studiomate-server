@@ -1,4 +1,4 @@
-from studiomateapi.models import Teacher
+from studiomateapi.models import Teacher, Student
 from datetime import date
 from django.http import HttpResponseServerError
 from rest_framework import serializers, status
@@ -31,6 +31,10 @@ class TeacherView(ViewSet):
             logged_in_teacher = Teacher.objects.filter(user=request.auth.user)
             teachers = logged_in_teacher
 
+        elif "student" in request.query_params:
+            student_id = request.query_params['student']
+            student = Student.objects.get(pk=student_id)
+            teachers = Teacher.objects.filter(pk=student.teacher_id)
         else:
             teachers = Teacher.objects.all()
 
@@ -70,7 +74,15 @@ class TeacherView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'first_name', 'last_name')
+
+
 class TeacherSerializer(serializers.ModelSerializer):
+
+    user = UserSerializer(many=False)
 
     class Meta:
         model = Teacher

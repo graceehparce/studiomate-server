@@ -22,10 +22,18 @@ class MessageView(ViewSet):
             student_id = request.query_params['student']
             student = Student.objects.get(pk=student_id)
             messages = Message.objects.filter(
-                recipient=student.user) | Message.objects.filter(sender=student.user).order_by("date_time")
+                recipient_id=student.user_id) | Message.objects.filter(sender_id=student.user_id).order_by("date_time")
+
+        elif "teacher" in request.query_params:
+            teacher_id = request.query_params['teacher']
+            teacher = Teacher.objects.get(pk=teacher_id)
+            messages = Message.objects.filter(
+                recipient_id=teacher.user_id) | Message.objects.filter(sender_id=teacher.user_id).order_by("date_time")
 
         else:
-            messages = Message.objects.all()
+            logged_in_user = User.objects.get(request.auth.user)
+            messages = Message.objects.filter(recipient_id=logged_in_user.pk) | Message.objects.filter(
+                sender_id=logged_in_user.pk).order_by("date_time")
 
         serializer = MessageSerializer(messages, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

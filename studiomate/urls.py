@@ -15,6 +15,7 @@ router.register(r'requests', RequestView, 'request')
 router.register(r'resources', ResourceView, 'resource')
 router.register(r'invoices', InvoiceView, 'invoice')
 router.register(r'messages', MessageView, 'message')
+
 router.register(r'notificationTypes', NotificationTypeView, 'notificationType')
 
 
