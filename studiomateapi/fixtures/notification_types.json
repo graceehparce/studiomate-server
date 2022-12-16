@@ -1,0 +1,30 @@
+[
+    {
+        "model": "studiomateapi.notificationtype",
+        "pk": 1,
+        "fields": {
+            "type": "message"
+        }
+    },
+    {
+        "model": "studiomateapi.notificationtype",
+        "pk": 2,
+        "fields": {
+            "type": "invoice"
+        }
+    },
+    {
+        "model": "studiomateapi.notificationtype",
+        "pk": 3,
+        "fields": {
+            "type": "assignment"
+        }
+    },
+    {
+        "model": "studiomateapi.notificationtype",
+        "pk": 4,
+        "fields": {
+            "type": "schedule request"
+        }
+    }
+]

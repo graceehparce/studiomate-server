@@ -20,10 +20,10 @@ class AssignmentView(ViewSet):
             student_id = request.query_params['student']
             assignments = Assignment.objects.filter(
                 student=student_id
-            )
+            ).order_by("date_created")
 
         else:
-            assignments = Assignment.objects.all()
+            assignments = Assignment.objects.all().order_by("date_created")
 
         serializer = AssignmentSerializer(assignments, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

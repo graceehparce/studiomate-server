@@ -30,11 +30,6 @@ class MessageView(ViewSet):
             messages = Message.objects.filter(
                 recipient_id=teacher.user_id) | Message.objects.filter(sender_id=teacher.user_id).order_by("date_time")
 
-        else:
-            logged_in_user = User.objects.get(request.auth.user)
-            messages = Message.objects.filter(recipient_id=logged_in_user.pk) | Message.objects.filter(
-                sender_id=logged_in_user.pk).order_by("date_time")
-
         serializer = MessageSerializer(messages, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

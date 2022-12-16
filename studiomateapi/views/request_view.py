@@ -17,10 +17,9 @@ class RequestView(ViewSet):
 
         if "student" in request.query_params:
             student_id = request.query_params['student']
-            logged_in_teacher = Teacher.objects.get(user=request.auth.user)
 
             requests = Request.objects.filter(
-                student=student_id, teacher=logged_in_teacher
+                student=student_id
             ).order_by("date")
 
         else:
@@ -47,6 +46,13 @@ class RequestView(ViewSet):
 
         serializer = RequestSerializer(new_request)
         return Response(serializer.data)
+
+    def update(self, request, pk):
+        needed_request = Request.objects.get(pk=pk)
+        needed_request.accepted = request.data["accepted"]
+        needed_request.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk):
         resource = Request.objects.get(pk=pk)
