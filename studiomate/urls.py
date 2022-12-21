@@ -1,5 +1,5 @@
 
-from studiomateapi.views import TeacherView, StudentView, AssignmentView, RequestView, ResourceView, InvoiceView, MessageView, NotificationTypeView
+from studiomateapi.views import TeacherView, StudentView, AssignmentView, RequestView, ResourceView, InvoiceView, MessageView, NotificationTypeView, NotificationView
 from rest_framework import routers
 from studiomateapi.views import register_user, login_user
 from django.conf.urls import include
@@ -15,6 +15,8 @@ router.register(r'requests', RequestView, 'request')
 router.register(r'resources', ResourceView, 'resource')
 router.register(r'invoices', InvoiceView, 'invoice')
 router.register(r'messages', MessageView, 'message')
+router.register(r'notifications', NotificationView, 'notification')
+
 
 router.register(r'notificationTypes', NotificationTypeView, 'notificationType')
 

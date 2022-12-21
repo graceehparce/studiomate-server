@@ -6,4 +6,5 @@ from .request_view import RequestView
 from .resource_view import ResourceView
 from .student_view import StudentView
 from .teacher_view import TeacherView
+from .notification_view import NotificationView
 from .auth import login_user, register_user
