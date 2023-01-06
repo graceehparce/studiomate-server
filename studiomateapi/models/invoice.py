@@ -10,3 +10,4 @@ class Invoice(models.Model):
     service_date = models.DateField()
     amount = models.CharField(max_length=50)
     comment = models.CharField(max_length=750)
+    paid = models.BooleanField(default=False)

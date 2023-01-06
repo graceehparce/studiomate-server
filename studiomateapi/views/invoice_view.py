@@ -43,10 +43,18 @@ class InvoiceView(ViewSet):
         new_invoice.service_date = request.data["service_date"]
         new_invoice.amount = request.data["amount"]
         new_invoice.comment = request.data["comment"]
+        new_invoice.paid = False
         new_invoice.save()
 
         serializer = InvoiceSerializer(new_invoice)
         return Response(serializer.data)
+
+    def update(self, request, pk):
+        needed_invoice = Invoice.objects.get(pk=pk)
+        needed_invoice.paid = request.data["paid"]
+        needed_invoice.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk):
         invoice = Invoice.objects.get(pk=pk)
@@ -76,5 +84,5 @@ class InvoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invoice
         fields = ('id', 'student', 'teacher', 'date_created', 'service_date',
-                  'amount', 'comment')
+                  'amount', 'comment', 'paid')
         depth = 1
